@@ -1,7 +1,7 @@
 
 namespace tests {
     
-    export class Assertion {
+    class Assertion {
         name: string;
         condition: (value: any, other?: any) => boolean;
 
