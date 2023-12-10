@@ -16,8 +16,10 @@ namespace tests {
         }
 
         private fail(values: any[]): void {
-            let formatted = values.map((value) => JSON.stringify(value)).join(", ");
-            throw `Assertion ${this.name} failed with values ${formatted}`;
+            let formatted = values.filter((value) => value !== undefined);
+            formatted = formatted.map((value) => typeof value === "function" ? "<method>" : value);
+            formatted = formatted.map((value) => value === "<method>" ? value : JSON.stringify(value));
+            throw `Assertion ${this.name} failed with values ${formatted.join(", ")}`;
         }
     }
 
@@ -106,13 +108,13 @@ namespace tests {
     }
     
     export class AssertRaises extends Assertion {
-        constructor(value: () => any) {
+        constructor(method: () => any, exception?: string) {
             super("AssertRaises", function(value) {
                 try {value();}
-                catch(e) {return true;}
+                catch(e) {return exception ? e === exception : true;}
                 return false;
             });
-            this.execute(value);
+            this.execute(method, exception);
         }
     }
 
