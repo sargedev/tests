@@ -12,13 +12,24 @@ namespace tests {
 
         execute(value: any, other?: any) {
             let result = this.condition(value, other);
-            if (!result) this.fail([value, other]);
+            if (result) this.success([value, other]);
+            else this.fail([value, other]);
+        }
+
+        private format(values: any[]): string {
+            let formatted = values.map((value) => typeof value === "function" ? "<method>" : value);
+            formatted = formatted.map((value) => value === "<method>" ? value : JSON.stringify(value));
+            return formatted.join(", ");
         }
 
         private fail(values: any[]): void {
-            let formatted = values.map((value) => typeof value === "function" ? "<method>" : value);
-            formatted = formatted.map((value) => value === "<method>" ? value : JSON.stringify(value));
-            throw `Assertion ${this.name} failed with values ${formatted.join(", ")}`;
+            let formatted = this.format(values);
+            throw `Assertion ${this.name} failed with values ${formatted}`;
+        }
+        
+        private success(values: any[]): void {
+            let formatted = this.format(values);
+            console.log(`Assertion ${this.name} succeeded with values ${formatted}`);
         }
     }
 
