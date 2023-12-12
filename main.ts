@@ -16,8 +16,7 @@ namespace tests {
         }
 
         private fail(values: any[]): void {
-            let formatted = values.filter((value) => value !== undefined);
-            formatted = formatted.map((value) => typeof value === "function" ? "<method>" : value);
+            let formatted = values.map((value) => typeof value === "function" ? "<method>" : value);
             formatted = formatted.map((value) => value === "<method>" ? value : JSON.stringify(value));
             throw `Assertion ${this.name} failed with values ${formatted.join(", ")}`;
         }
