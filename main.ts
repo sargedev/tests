@@ -1,5 +1,13 @@
 
 namespace tests {
+
+    function includes(item: any, array: any[]): boolean {
+        let found = false;
+        array.forEach((value) => {
+            if (value === item) found = true;
+        })
+        return found;
+    }
     
     class Assertion {
         name: string;
@@ -112,14 +120,14 @@ namespace tests {
     
     export class AssertIn extends Assertion {
         constructor(value: any, array: any[]) {
-            super("AssertIn", (value, array) => array.contains(value));
+            super("AssertIn", (value, array) => includes(value, array));
             this.execute(value, array);
         }
     }
 
     export class AssertNotIn extends Assertion {
         constructor(value: any, array: any[]) {
-            super("AssertNotIn", (value, array) => !array.contains(value));
+            super("AssertNotIn", (value, array) => !includes(value, array));
             this.execute(value, array);
         }
     }
