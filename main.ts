@@ -1,6 +1,8 @@
 
 namespace tests {
 
+    export let LOGGING = true;
+
     function includes(item: any, array: any[]): boolean {
         let found = false;
         array.forEach((value) => {
@@ -36,8 +38,10 @@ namespace tests {
         }
         
         private success(values: any[]): void {
-            let formatted = this.format(values);
-            console.log(`Assertion ${this.name} succeeded with values ${formatted}`);
+            if (LOGGING) {
+                let formatted = this.format(values);
+                console.log(`Assertion ${this.name} succeeded with values ${formatted}`);
+            }
         }
     }
 
