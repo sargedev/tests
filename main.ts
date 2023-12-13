@@ -10,7 +10,7 @@ namespace tests {
             this.condition = condition;
         }
 
-        execute(value: any, other?: any) {
+        execute(value?: any, other?: any) {
             let result = this.condition(value, other);
             if (result) this.success([value, other]);
             else this.fail([value, other]);
@@ -30,6 +30,13 @@ namespace tests {
         private success(values: any[]): void {
             let formatted = this.format(values);
             console.log(`Assertion ${this.name} succeeded with values ${formatted}`);
+        }
+    }
+
+    export class Assert extends Assertion {
+        constructor(condition: () => boolean) {
+            super("Assert", () => condition());
+            this.execute();
         }
     }
 
