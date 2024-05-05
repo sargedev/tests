@@ -63,7 +63,7 @@ namespace tests {
                 if ((value as any[]).length !== (other as any[]).length) return false;
                 
                 for (let i = 0; i < (value as any[]).length; i++){
-                    if ((value as any[])[i] !== (other as any[])[i]) return false;
+                    if (!this.checkEquality((value as any[])[i], (other as any[])[i])) return false;
                 }
                 return true;
             }
