@@ -2,7 +2,8 @@
     "name": "Tests",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "CheckEquality": "github:S0m3randomguy/checkEquality#cf52410fc1ed6110a280e70f02aeab242003a862"
     },
     "files": [
         "main.ts",

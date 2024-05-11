@@ -54,21 +54,8 @@ namespace tests {
 
     export class AssertEqual extends Assertion {
         constructor(value: any, other: any) {
-            super("AssertEqual", (value, other) => this.checkEquality(value, other));
+            super("AssertEqual", (value, other) => checkEquality.equal(value, other));
             this.execute(value, other);
-        }
-        
-        private checkEquality(value: any, other: any): boolean {
-            if (Array.isArray(value) && Array.isArray(other)) {
-                if ((value as any[]).length !== (other as any[]).length) return false;
-                
-                for (let i = 0; i < (value as any[]).length; i++){
-                    if (!this.checkEquality((value as any[])[i], (other as any[])[i])) return false;
-                }
-                return true;
-            }
-
-            return value === other;
         }
     }
 
