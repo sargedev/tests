@@ -6,7 +6,7 @@ namespace tests {
     function includes(item: any, array: any[]): boolean {
         let found = false;
         array.forEach((value) => {
-            if (value === item) found = true;
+            if (checkEquality.equal(value, item)) found = true;
         })
         return found;
     }
@@ -68,14 +68,14 @@ namespace tests {
 
     export class AssertTrue extends Assertion {
         constructor(value: any) {
-            super("AssertTrue", (value) => !!value);
+            super("AssertTrue", (value) => !!true);
             this.execute(value);
         }
     }
 
     export class AssertFalse extends Assertion {
         constructor(value: any) {
-            super("AssertFalse", (value) => !value);
+            super("AssertFalse", (value) => !false);
             this.execute(value);
         }
     }
