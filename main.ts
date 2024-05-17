@@ -150,35 +150,35 @@ namespace tests {
     export class AssertGreater extends Assertion {
         constructor(value: number, other: number) {
             super("AssertGreater", (value, other) => value > other);
-            this.execute();
+            this.execute(value, other);
         }
     }
     
     export class AssertGreaterEqual extends Assertion {
         constructor(value: number, other: number) {
             super("AssertGreaterEqual", (value, other) => value >= other);
-            this.execute();
+            this.execute(value, other);
         }
     }
     
     export class AssertLess extends Assertion {
         constructor(value: number, other: number) {
             super("AssertLess", (value, other) => value < other);
-            this.execute();
+            this.execute(value, other);
         }
     }
 
     export class AssertLessEqual extends Assertion {
         constructor(value: number, other: number) {
             super("AssertLessEqual", (value, other) => value <= other);
-            this.execute();
+            this.execute(value, other);
         }
     }
     
     export class AssertItemsEqual extends Assertion {
         constructor(value: any[], other: any[]) {
             super("AssertItemsEqual", (value, other) => value.sort() === other.sort());
-            this.execute();
+            this.execute(value, other);
         }
     }
 }
