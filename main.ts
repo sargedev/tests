@@ -27,8 +27,7 @@ namespace tests {
         }
 
         private format(values: any[]): string {
-            let formatted = values.map((value) => typeof value === "function" ? "<method>" : value);
-            formatted = formatted.map((value) => value === "<method>" ? value : JSON.stringify(value));
+            let formatted = values.map((value) => text.stringify(value));
             return formatted.join(", ");
         }
 
