@@ -180,4 +180,22 @@ namespace tests {
             this.execute(value, other);
         }
     }
+
+    // Block functions
+
+    export function assertEqual(value: any, other: any): void {
+        new tests.AssertEqual(value, other);
+    }
+
+    export function assertNotEqual(value: any, other: any): void {
+        new tests.AssertNotEqual(value, other);
+    }
+
+    export function assertTrue(value: any): void {
+        new tests.AssertTrue(value);
+    }
+    
+    export function assertFalse(value: any): void {
+        new tests.AssertFalse(value);
+    }
 }
