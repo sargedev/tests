@@ -198,4 +198,12 @@ namespace tests {
     export function assertFalse(value: any): void {
         new tests.AssertFalse(value);
     }
+
+    export function assertIsNull(value: any): void {
+        new tests.AssertIsNull(value);
+    }
+
+    export function assertIsNotNull(value: any): void {
+        new tests.AssertIsNotNull(value);
+    }
 }
