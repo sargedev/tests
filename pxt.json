@@ -3,7 +3,7 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "CheckEquality": "github:sargedev/checkequality",
+        "CheckEquality": "github:sargedev/checkequality#cf52410fc1ed6110a280e70f02aeab242003a862",
         "Stringify": "github:sargedev/stringify#fa05269e440fcd3b4dd21bfe2c5f9de4cd755c69"
     },
     "files": [
