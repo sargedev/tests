@@ -60,7 +60,7 @@ namespace tests {
 
     export class AssertNotEqual extends Assertion {
         constructor(value: any, other: any) {
-            super("AssertNotEqual", (value, other) => value !== other);
+            super("AssertNotEqual", (value, other) => !checkEquality.equal(value, other));
             this.execute(value, other);
         }
     }
@@ -176,7 +176,7 @@ namespace tests {
     
     export class AssertItemsEqual extends Assertion {
         constructor(value: any[], other: any[]) {
-            super("AssertItemsEqual", (value, other) => value.sort() === other.sort());
+            super("AssertItemsEqual", (value, other) => checkEquality.equal(value.sort(), other.sort()));
             this.execute(value, other);
         }
     }
