@@ -10,6 +10,24 @@ namespace tests {
         })
         return found;
     }
+
+    function itemsEqual(value: any[], other: any[]): boolean {
+        if (value.length !== other.length) return false;
+
+        let found: boolean;
+        for (let i = 0; i < value.length; i++) {
+            found = false;
+            for (let j = 0; j < other.length; j++) {
+                if (checkEquality.equal(value[i], other[j])) {
+                    other.removeAt(j);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) return false;
+        }
+        return true;
+    }
     
     class Assertion {
         name: string;
@@ -176,7 +194,7 @@ namespace tests {
     
     export class AssertItemsEqual extends Assertion {
         constructor(value: any[], other: any[]) {
-            super("AssertItemsEqual", (value, other) => checkEquality.equal(value.sort(), other.sort()));
+            super("AssertItemsEqual", (value, other) => itemsEqual(value, other));
             this.execute(value, other);
         }
     }
