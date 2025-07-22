@@ -3,7 +3,7 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "CheckEquality": "github:sargedev/checkequality#cf52410fc1ed6110a280e70f02aeab242003a862",
+        "CheckEquality": "github:sargedev/checkequality#8bdeb8cda2b49b2603992269741bdbffa653d4da",
         "Stringify": "github:sargedev/stringify#74e9eee193ec8208a2a12d88e72c218c171a5680"
     },
     "files": [
@@ -15,7 +15,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.12.56",
+        "target": "2.0.56",
         "targetId": "arcade"
     },
     "supportedTargets": [
